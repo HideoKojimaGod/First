@@ -1,15 +1,18 @@
 //
-//  GameTableViewCell.swift
+//  ListGamesViewCell.swift
 //  First
 //
-//  Created by Admin on 27.04.18.
+//  Created by Ilya on 02.05.2018.
 //  Copyright © 2018 csu. All rights reserved.
 //
 
 import UIKit
 
-class GameTableViewCell: UITableViewCell {
+class ListGamesViewCell: UITableViewCell {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var coverImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
