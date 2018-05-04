@@ -9,19 +9,24 @@
 import UIKit
 
 class ListGamesViewCell: UITableViewCell {
+    
+    var game: Game?
+    {
+        didSet {
+            guard let game = game else {
+                return
+            }
+            self.coverImageView?.image = UIImage(named: game.image)
+            self.nameLabel?.text = game.name
+            self.yearLabel?.text = "\(game.year)";
+        }
+        
+    }
+    
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var coverImageView: UIImageView!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
 }

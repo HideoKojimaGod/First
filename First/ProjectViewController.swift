@@ -8,74 +8,42 @@
 
 import UIKit
 
-struct Game {
-    let year: Int
-    let image: String
-    let name: String
-    let description: String;
-}
-
 class ProjectViewController: UIViewController {
 
-    @IBOutlet weak var gameImage: UIImageView!
-    @IBOutlet weak var gameYear: UILabel!
     
-//    var games: [Game] = []
+    @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var devCompanyLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var platformsLabel: UILabel!
+    
+
     var game: Game?
     var currentGame: Int = 0
-    
-//    func setupGames() {
-//        games = [Game(year:2018, image: "GOW.jpg", name: "God of War", description: "d"),
-//                Game(year:2016, image: "FFVX.jpg", name: "Final Fantasy XV", description: "d"),
-//                Game(year:2018, image: "FC5.png", name: "Far Cry 5", description: "d")]
-//    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setupGames()
     }
     
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setGame()
+        
+    }
+    
+    func setGame() {
         guard let game = game else
         {
             return;
         }
         title = game.name
-        gameImage.image = UIImage(named: game.image)
-        //gameName.text = game.name
-        gameYear.text = "\(game.year)"
-        
+        coverImageView.image = UIImage(named: game.image)
+        yearLabel.text = "\(game.year)"
+        devCompanyLabel.text = game.devCompany
+        platformsLabel.text = game.platforms.joined(separator: ", ")
+        descriptionLabel.text = game.description
     }
-    
-//    func setGame(_ numGame: Int) {
-//        gameImage.image = UIImage(named: games[numGame].image)
-//        gameName.text = games[numGame].name
-//        gameYear.text = "\(games[numGame].year)"
-//    }
-//
-//
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//    }
-//
-//    @IBAction func actionNextimage(_ sender: UIButton) {
-//        if currentGame == games.count - 1 {
-//            currentGame = 0
-//        } else {
-//            currentGame = currentGame + 1
-//        }
-//        setGame(currentGame)
-//
-//    }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
