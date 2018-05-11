@@ -38,7 +38,8 @@ class ProjectViewController: UIViewController {
             return;
         }
         title = game.name
-        coverImageView.image = UIImage(named: game.image)
+        let url = URL(string: game.image) ?? URL(string: "https://bumper-stickers.ru/26762-thickbox_default/znak-voprosa.jpg")!
+        coverImageView.af_setImage(withURL: url)
         yearLabel.text = "\(game.year)"
         devCompanyLabel.text = game.devCompany
         platformsLabel.text = game.platforms.joined(separator: ", ")

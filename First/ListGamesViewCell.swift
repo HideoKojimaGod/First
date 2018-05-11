@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class ListGamesViewCell: UITableViewCell {
     
@@ -16,13 +17,18 @@ class ListGamesViewCell: UITableViewCell {
             guard let game = game else {
                 return
             }
-            self.coverImageView?.image = UIImage(named: game.image)
-            self.nameLabel?.text = game.name
-            self.yearLabel?.text = "\(game.year)";
+            setCell(game)
         }
         
     }
     
+    func setCell(_ game: Game) {
+        let url = URL(string: game.image) ?? URL(string: "https://bumper-stickers.ru/26762-thickbox_default/znak-voprosa.jpg")!
+        self.coverImageView?.af_setImage(withURL: url)
+        //imageView.af_setImage(withURL: url)
+        self.nameLabel?.text = game.name
+        self.yearLabel?.text = "\(game.year)";
+    }
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
