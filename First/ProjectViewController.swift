@@ -16,6 +16,7 @@ class ProjectViewController: UIViewController {
     @IBOutlet weak var devCompanyLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var platformsLabel: UILabel!
+    @IBOutlet weak var countPlayersLabel: UILabel!
     
 
     var game: Game?
@@ -44,6 +45,7 @@ class ProjectViewController: UIViewController {
         devCompanyLabel.text = game.devCompany
         platformsLabel.text = game.platforms.joined(separator: ", ")
         descriptionLabel.text = game.description
+        countPlayersLabel.text = "\(game.countPlayers)"
     }
 
 
